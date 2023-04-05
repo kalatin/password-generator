@@ -41,8 +41,9 @@ class PassGen {
 	}
 }
 
+let passwordField = document.querySelector('.password__input-text');
+
 function writePass() {
-	let passwordField = document.querySelector('.password__input-text');
 	let inputRangeValue = document.querySelector('input[type="range"]').value;
 	passwordField.textContent = new PassGen(
 		inputRangeValue,
@@ -53,4 +54,8 @@ function writePass() {
 document.querySelector('input[type="range"]').addEventListener('input', writePass);
 document.querySelector('input[type="checkbox"]').addEventListener('input', writePass);
 document.querySelector('.password__input-new').addEventListener('click', writePass);
+document.querySelector('.password__button').addEventListener('click', e => {
+	navigator.clipboard.writeText(passwordField.textContent);
+});
+
 writePass();
