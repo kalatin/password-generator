@@ -71,11 +71,80 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 }
 
+.control-group {
+  display: inline-block;
+}
+
+.control {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 5px;
+  padding-top: 3px;
+  cursor: pointer;
+  font-family: "Tomorrow";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.2em;
+  color: #fafafa;
+}
+
+.control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.control_indicator {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 24px;
+  width: 24px;
+  background: #000000;
+  border: 2px solid #f8ef00;
+  border-radius: 0px;
+}
+
+.control:hover input ~ .control_indicator,
+.control input:focus ~ .control_indicator {
+  background: #000000;
+}
+
+.control input:checked ~ .control_indicator {
+  background: #f8ef00;
+}
+
+.control:hover input:not([disabled]):checked ~ .control_indicator,
+.control input:checked:focus ~ .control_indicator {
+  background: #f8ef00;
+}
+
+.control input:disabled ~ .control_indicator {
+  background: #e6e6e6;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
 body {
   font-family: "Tomorrow", sans-serif;
   background: #000;
+  padding-left: 10%;
 }
 
+.password {
+  display: inline-block;
+  margin: 0 auto;
+  padding-top: 4%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.password__block {
+  display: inline-flex;
+  flex-direction: column;
+}
 .password__title {
   font-style: normal;
   font-weight: 700;
@@ -84,21 +153,32 @@ body {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #f8ef00;
-  max-width: 400px;
+  max-width: 320px;
 }
 .password__input {
+  width: max(588px, 100%);
+  margin-top: 50px;
   display: inline-block;
   background: rgba(0, 240, 255, 0.1);
-  /* Bright Aqua */
-  padding: 20px;
   border: 2px solid #00f0ff;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 }
 .password__input-text {
+  font-size: 16px;
   background: rgba(0, 238, 255, 0);
   letter-spacing: 0.2em;
   color: #00f0ff;
+  width: 100%;
+}
+.password__input-new:hover {
+  cursor: pointer;
 }
 .password__button {
+  margin-top: 20px;
   display: flex;
   align-items: center;
   -moz-column-gap: 20px;
@@ -137,24 +217,27 @@ body {
   border-left: 2px solid #ff003c;
 }
 .password__range {
-  margin-top: 20px;
-  height: 50px;
-  border: 1px solid white;
+  height: 45px;
+  margin-top: 30px;
   display: inline-block;
-  width: min(588px, 100%);
+  width: max(588px, 100%);
   position: relative;
 }
 .password__range output {
   position: absolute;
-  color: white;
-  top: 15%;
-  padding-left: 0px;
-  left: 30.7692307692%;
-  transform: translate(-30.7692307692%, 0);
+  top: 0%;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fafafa;
 }
 .password__range input {
   position: absolute;
-  bottom: 15%;
+  bottom: 20%;
   width: 100%;
   -webkit-appearance: none !important;
   background: #00f0ff;
@@ -165,4 +248,38 @@ body {
   background: #f8ef00;
   height: 21px;
   width: 21px;
+}
+.password__checkboxs {
+  margin-top: 50px;
+}
+
+@media (width < 700px) {
+  body {
+    padding: 0;
+  }
+  .password {
+    display: flex;
+    padding: 10px;
+  }
+  .password__block {
+    display: flex;
+    margin: 0 auto;
+  }
+  .password__input {
+    padding: 0 10px;
+  }
+  .password__input-text {
+    font-size: 14px;
+  }
+  .password__range {
+    width: 100%;
+  }
+  .password__input {
+    width: 100%;
+  }
+}
+@media (width < 400px) {
+  .password__input-text {
+    font-size: 13px;
+  }
 }

@@ -18,9 +18,8 @@ export function inputRange() {
 			console.log(Math.floor((+max + +min) / 2));
 			inputRangeValue.style.paddingLeft = '3px';
 		} else if (value >= Math.ceil((+max + +min) / 2)) {
-			console.log();
 			inputRangeValue.style.paddingLeft = '0px';
-			inputRangeValue.style.paddingRight = '2px';
+			inputRangeValue.style.paddingRight = '0.5px';
 		}
 	}
 }

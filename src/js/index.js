@@ -3,15 +3,19 @@ import { inputRange } from './inputRange.js';
 inputRange();
 
 class PassGen {
-	constructor() {
+	constructor(count, is) {
 		this.password = '';
-		this.passCount = 10;
+		this.passCount = count;
 		this.symbols = {
 			bigLetters: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''),
 			smallLetters: 'abcdefghijklmnopqrstuvwxyz'.split(''),
 			numbers: '0123456789'.split(''),
-			specSymbols: '!@#$%^&*_~-'.split(''),
 		};
+		if (is) {
+			this.symbols.specSymbols = '!@#$%^&*_~-'.split('');
+		} else {
+			console.log('no');
+		}
 
 		for (let i = 0; i < this.passCount; i++) {
 			let whatKey = Math.floor(Math.random() * Object.keys(this.symbols).length);
@@ -37,12 +41,16 @@ class PassGen {
 	}
 }
 
-let ex1 = new PassGen();
-document.write(ex1.password);
-
-function rangeProcent() {
-	let max = 25;
-	let min = 12;
-	let our = 13;
-	console.log();
+function writePass() {
+	let passwordField = document.querySelector('.password__input-text');
+	let inputRangeValue = document.querySelector('input[type="range"]').value;
+	passwordField.textContent = new PassGen(
+		inputRangeValue,
+		document.querySelector('input[type="checkbox"]').checked
+	).password;
 }
+
+document.querySelector('input[type="range"]').addEventListener('input', writePass);
+document.querySelector('input[type="checkbox"]').addEventListener('input', writePass);
+document.querySelector('.password__input-new').addEventListener('click', writePass);
+writePass();
