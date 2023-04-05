@@ -4,9 +4,54 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Barlow&family=Tomorrow:wght@400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./src/css/index.css" />
 		<title>Document</title>
 	</head>
 	<body>
-		<script src="./src/js/index.js"></script>
+		<div class="password">
+			<div class="password__block">
+				<h1 class="password__title">генератор паролей</h1>
+				<div class="password__input">
+					<input type="text" class="password__input-text" />
+					<div class="password__input-save"></div>
+					<div class="password__input-new"></div>
+				</div>
+				<button class="password__button">
+					<div class="password__button-text">COPY PASSWORD_</div>
+					<img src="./src/img/Vector.svg" alt="vector" />
+				</button>
+				<div class="password__range">
+					<output>24</output>
+					<input type="range" name="range" min="12" max="25" step="1" />
+				</div>
+				<div class="password__checkboxs">
+					<div class="password__checkbox">
+						<input type="checkbox" name="checkbox1" id="checkbox1" />
+						<label for="checkbox1">Uppercase letters</label>
+					</div>
+					<div class="password__checkbox">
+						<input type="checkbox" name="checkbox2" id="checkbox2" />
+						<label for="checkbox2">Lowercase letters</label>
+					</div>
+					<div class="password__checkbox">
+						<input type="checkbox" name="checkbox3" id="checkbox3" />
+						<label for="checkbox3">Numbers</label>
+					</div>
+					<div class="password__checkbox">
+						<input type="checkbox" name="checkbox4" id="checkbox4" />
+						<label for="checkbox4">Symbols</label>
+					</div>
+				</div>
+			</div>
+			<div class="password__history"></div>
+			<footer class="password__footer"></footer>
+		</div>
+		<script src="./src/js/index.js" type="module"></script>
 	</body>
 </html>

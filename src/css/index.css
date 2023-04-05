@@ -70,3 +70,99 @@ h1, h2, h3, h4, h5, h6 {
   font-size: inherit;
   font-weight: 400;
 }
+
+body {
+  font-family: "Tomorrow", sans-serif;
+  background: #000;
+}
+
+.password__title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 40px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #f8ef00;
+  max-width: 400px;
+}
+.password__input {
+  display: inline-block;
+  background: rgba(0, 240, 255, 0.1);
+  /* Bright Aqua */
+  padding: 20px;
+  border: 2px solid #00f0ff;
+}
+.password__input-text {
+  background: rgba(0, 238, 255, 0);
+  letter-spacing: 0.2em;
+  color: #00f0ff;
+}
+.password__button {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  padding: 20px 40px;
+  background: #f8ef00;
+  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 20% 150%, 0 67%);
+          clip-path: polygon(0 0, 100% 0%, 100% 100%, 20% 150%, 0 67%);
+  border-right: 2px solid #ff003c;
+  position: relative;
+}
+.password__button-text {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.password__button::before {
+  content: "R25";
+  width: 38px;
+  height: 8px;
+  background: black;
+  position: absolute;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #f8ef00;
+  bottom: 0;
+  right: 20px;
+  border-left: 2px solid #ff003c;
+}
+.password__range {
+  margin-top: 20px;
+  height: 50px;
+  border: 1px solid white;
+  display: inline-block;
+  width: min(588px, 100%);
+  position: relative;
+}
+.password__range output {
+  position: absolute;
+  color: white;
+  top: 15%;
+  padding-left: 0px;
+  left: 30.7692307692%;
+  transform: translate(-30.7692307692%, 0);
+}
+.password__range input {
+  position: absolute;
+  bottom: 15%;
+  width: 100%;
+  -webkit-appearance: none !important;
+  background: #00f0ff;
+  height: 3px;
+}
+.password__range input::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  background: #f8ef00;
+  height: 21px;
+  width: 21px;
+}
